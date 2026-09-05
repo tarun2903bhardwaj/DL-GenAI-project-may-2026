@@ -1,0 +1,22 @@
+# Smart MCQ Solver — Production Deployment Dependencies
+# Platform: Streamlit Community Cloud / Hugging Face Spaces
+
+# UI Framework
+streamlit>=1.32.0
+
+# Data handling & Math
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# NLP & Retrieval
+rapidfuzz>=3.0.0
+rank-bm25>=0.2.2
+
+# Deep Learning (PyTorch & Transformers)
+torch>=2.0.0
+transformers>=4.40.0
+peft>=0.10.0
+accelerate>=0.27.0
+sentencepiece
+protobuf
