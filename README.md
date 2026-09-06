@@ -1,3 +1,14 @@
+---
+title: Smart MCQ Solver
+emoji: 🧠
+colorFrom: blue
+colorTo: indigo
+sdk: streamlit
+sdk_version: 1.32.0
+app_file: app.py
+pinned: false
+---
+
 # 🧠 Smart MCQ Solver (Deep Learning & GenAI)
 
 **Roll No:** 24f1002384  

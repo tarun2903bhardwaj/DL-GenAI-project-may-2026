@@ -1,8 +1,13 @@
+import os
+import time
 import streamlit as st
 import pandas as pd
 import numpy as np
-import time
 from solver import SmartMCQSolver, strip_preambles, CHOICES
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_TRAIN_PATH = os.path.join(BASE_DIR, 'data', 'train.csv')
+DATA_TEST_PATH = os.path.join(BASE_DIR, 'data', 'test.csv')
 
 # Page Configuration
 st.set_page_config(
@@ -68,7 +73,7 @@ st.markdown("""
 # Cache the solver so it only initializes once
 @st.cache_resource(show_spinner="Initializing MCQ Solver & Reference Question Bank...")
 def load_solver():
-    return SmartMCQSolver(train_csv_path='data/train.csv', models_dir='models')
+    return SmartMCQSolver(train_csv_path=DATA_TRAIN_PATH, models_dir=os.path.join(BASE_DIR, 'models'))
 
 solver = load_solver()
 
@@ -220,9 +225,9 @@ with tab2:
     default_test_df = None
     if uploaded_file is not None:
         test_data = pd.read_csv(uploaded_file)
-    elif os.path.exists('data/test.csv'):
+    elif os.path.exists(DATA_TEST_PATH):
         if st.checkbox("Use bundled competition test.csv (500 rows)", value=True):
-            test_data = pd.read_csv('data/test.csv')
+            test_data = pd.read_csv(DATA_TEST_PATH)
         else:
             test_data = None
     else:
